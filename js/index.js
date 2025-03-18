@@ -1,5 +1,6 @@
 import { Auth, AUTH_TOKEN } from "./auth/auth.js";
 import { auth_ui } from "./auth/ui.js";
+import Data from "./data.js";
 
 const auth = new Auth();
 document.addEventListener('DOMContentLoaded', async () => {
@@ -11,13 +12,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await res.json();
 
         if (res.status === 200) {
-            localStorage.setItem(AUTH_TOKEN, data.token);
+            localStorage.setItem(AUTH_TOKEN, data);
             authform.style.display = 'none';
         }
     };
 
-    if (!auth.authToken) {
+    if (auth.authToken === null || auth.authToken === 'undefined') {
         authform.innerHTML = auth_ui;
         document.getElementById('submit').addEventListener('click', clickToLogin);
     }
+
+    new Data();
 });
