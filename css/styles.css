@@ -1,0 +1,146 @@
+*:root {
+    color: #F3F6FD;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f6fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    border: 1px solid gray;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    width: 200px;
+    height: auto;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.grid-item {
+    display: flex;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.grid-item:nth-child(3),
+.grid-item:nth-child(4) {
+    grid-column: 1 / -1;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 100px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+        border-radius: 20px;
+    }
+
+    .grid-item {
+        margin: 20px;
+    }
+}
+@media (min-width: 1200px) {
+    body {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
