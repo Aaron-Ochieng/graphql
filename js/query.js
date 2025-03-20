@@ -32,7 +32,7 @@ export const graphql_query = `query{
     }
     
 #     finished projects
-    completed_projects: groups(where:{group:{status:{_eq:finished}}}){
+    completed_projects: groups(order_by:{createdAt:asc}where:{group:{status:{_eq:finished}}}){
       group{
         path
         status
