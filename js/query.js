@@ -40,6 +40,10 @@ export const graphql_query = `query{
         updatedAt
       }
     }
+#     Current Level
+    events(where: {eventId: {_eq: 75}}) {
+      level
+    }
 #     Current Projects Im working on
     current_projects: groups(where:{group:{status:{_eq:working}}}){
       group{
