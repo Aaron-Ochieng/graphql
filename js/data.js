@@ -57,10 +57,10 @@ export default class Data {
             document.getElementById('level').textContent = element['campus']
 
             document.getElementById('auditRatio').textContent = roundToTwoDecimalPlaces(Number(element['auditRatio']))
-            // const filteredXp = element.filter(transaction =>
-            //     !transaction.path.startsWith('/kisumu/module/checkpoint')
-            // );
 
+            // Display Level
+            const level = document.getElementById('userlevel');
+            level.textContent = element['events'][0]['level']
 
             // Progress Section
             const xp = element['xp']
