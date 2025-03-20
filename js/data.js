@@ -1,4 +1,5 @@
 const URL = 'https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql';
+const campus = "https://learn.zone01kisumu.ke"
 import { AUTH_TOKEN } from "./auth/auth.js";
 import { content_ui } from "./auth/ui.js";
 import { LineGraph } from "./graphs/progress.js";
@@ -32,16 +33,16 @@ export default class Data {
     async changeUI() {
         const queryData = await this.fetchData();
         function roundToTwoDecimalPlaces(num) {
-         
-            let rounded = Math.floor(num * 100); 
-            const nextDigit = Math.floor((num * 1000) % 10); 
 
-           
+            let rounded = Math.floor(num * 100);
+            const nextDigit = Math.floor((num * 1000) % 10);
+
+
             if (nextDigit > 5) {
-                rounded += 1; 
+                rounded += 1;
             }
 
-          
+
             return rounded / 100;
         }
 
@@ -66,6 +67,25 @@ export default class Data {
             const xp = element['xp']
             LineGraph(xp)
 
+
+            // Completed Projects
+            const cprojects = document.querySelector('.cproject')
+            element.completed_projects.forEach(project => {
+                const name = function(path){
+                    const arr = path.split('/')
+                    return arr.pop()
+                };
+                cprojects.innerHTML += `
+                <div style="display:flex; justify-content:start; align-items:center" id="complete">
+                    <p style="font-size:18px">${name(project.group.path)}</p>
+                    <a style="margin-left:20px">${project.group.path}</a>
+                <div>
+                `                
+            });
+
+
+
+            // Display user completed projects
             console.log(element)
         });
     }
