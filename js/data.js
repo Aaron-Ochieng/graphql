@@ -55,7 +55,6 @@ export default class Data {
             document.querySelector('.login').textContent = element['login']
             document.querySelector('.mail').textContent = element['email']
             document.querySelector('.campus').textContent = element['campus']
-            document.getElementById('level').textContent = element['campus']
 
             document.getElementById('auditRatio').textContent = roundToTwoDecimalPlaces(Number(element['auditRatio']))
 
@@ -69,7 +68,7 @@ export default class Data {
 
 
             // Completed Projects
-            const cprojects = document.querySelector('.cproject')
+            const cprojects = document.querySelector('.cproject');
             element.completed_projects.forEach(project => {
                 const name = function(path){
                     const arr = path.split('/')
@@ -84,9 +83,42 @@ export default class Data {
             });
 
 
+            // Display user ongoing projects
+            const oprojects = document.querySelector('.oproject');
+            if (element.current_projects.length > 0 ){
+                element.current_projects.forEach(project => {
+                    const name = function(path){
+                        const arr = path.split('/')
+                        return arr.pop()
+                    };
+                    oprojects.innerHTML += `
+                    <div style="display:flex; justify-content:start; align-items:center" id="complete">
+                        <p style="font-size:18px">${name(project.group.path)}</p>
+                        <a style="margin-left:20px">${project.group.path}</a>
+                    <div>
+                    `                
+                });
 
-            // Display user completed projects
-            console.log(element)
+            }else{
+                oprojects.textContent = "No ongoing projects"
+            }
+
+            function formatKB(bytes){
+                const kilobytes = bytes / 1000;
+                const megabytes = kilobytes / 1000;
+              
+                if (megabytes >= 1) {
+                  const roundedMB = Math.round(megabytes * 10) / 10;
+                  return `${roundedMB}MB`;
+                } else {
+                  const roundedKB = Math.round(kilobytes);
+                  return `${roundedKB}KB`;
+                }
+              }
+
+            // Total xp
+            document.getElementById('txp').textContent =formatKB(Number(element.totalXp.aggregate.sum.amount));
+            console.log()
         });
     }
 }

@@ -41,12 +41,17 @@ export const content_ui = `
                 <p>Level</p>
                 <p id="userlevel"></p>
             </span>
-            <span id="level">
-                <p>Level</p>
-                <p id="level"></p>
+            <span>
+                <p>Total XP</p>
+                <p id="txp"></p>
             </span>
         </div>
 
+    </div>
+    <div class="grid-item">
+        <div class="points">
+            <h2>XP progression</h2>
+        </div>
     </div>
     <div class="grid-item">
         <div class="points">
