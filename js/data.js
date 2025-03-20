@@ -1,6 +1,7 @@
 const URL = 'https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql';
 import { AUTH_TOKEN } from "./auth/auth.js";
 import { content_ui } from "./auth/ui.js";
+import { LineGraph } from "./graphs/progress.js";
 import { graphql_query } from "./query.js";
 
 export default class Data {
@@ -10,7 +11,7 @@ export default class Data {
         this.addUI();
         this.changeUI();
     }
-    
+
     async fetchData() {
         const res = await fetch(URL, {
             method: 'post',
@@ -25,20 +26,47 @@ export default class Data {
         return result['data']
     }
 
-    addUI(){
+    addUI() {
         document.getElementById('content').innerHTML = content_ui;
     }
+    async changeUI() {
+        const queryData = await this.fetchData();
+        function roundToTwoDecimalPlaces(num) {
+         
+            let rounded = Math.floor(num * 100); 
+            const nextDigit = Math.floor((num * 1000) % 10); 
 
-    async changeUI(){
-        const queryData =await  this.fetchData();
+           
+            if (nextDigit > 5) {
+                rounded += 1; 
+            }
+
+          
+            return rounded / 100;
+        }
+
+
         queryData['user'].forEach(element => {
 
             // User Details;
             document.querySelector('.icon').textContent = 'A'
-            document.querySelector('.username').textContent=element['firstName'] + ' ' + element['lastName']
-            document.querySelector('.login').textContent=element['login']
-            document.querySelector('.mail').textContent=element['email']
-            document.querySelector('.campus').textContent=element['campus'] 
+            document.querySelector('.username').textContent = element['firstName'] + ' ' + element['lastName']
+            document.querySelector('.login').textContent = element['login']
+            document.querySelector('.mail').textContent = element['email']
+            document.querySelector('.campus').textContent = element['campus']
+            document.getElementById('level').textContent = element['campus']
+
+            document.getElementById('auditRatio').textContent = roundToTwoDecimalPlaces(Number(element['auditRatio']))
+            // const filteredXp = element.filter(transaction =>
+            //     !transaction.path.startsWith('/kisumu/module/checkpoint')
+            // );
+
+
+            // Progress Section
+            const xp = element['xp']
+            LineGraph(xp)
+
+            console.log(element)
         });
     }
 }

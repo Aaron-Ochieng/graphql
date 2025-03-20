@@ -31,17 +31,30 @@ export const content_ui = `
             </div>
         </div>
         <div class="grid-item">
-            <div class="icon">
-                A
+            <div class="points">
+            <span>
+                <p>Audit ratio :</p>
+                <p id="auditRatio"></p>
+            </span>
+
+            <span>
+                <p>Level</p>
+                <p id="userlevel"></p>
+            </span>
+            <span>
+                <p>Level</p>
+                <p id="level"></p>
+            </span>
             </div>
-            <div class="user-details">
-                <p class="username">Aaron Ochieng</p>
-                <p class="username">+254740707743</p>
-                <p class="username">ochiengaoron@gmail.com</p> 
-                <p class="username">ochiengaoron@gmail.com</p>
+           
+        </div>
+        <div class="grid-item">
+            <div class="points">
+                <h2>XP progression</h2> 
+                <div id="chart-container"></div>
+                <div class="tooltip" id="tooltip"></div>
             </div>
         </div>
-        <div class="grid-item">Item 2</div>
         <div class="grid-item">Item 3</div>
     </div>
 `
