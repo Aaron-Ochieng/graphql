@@ -19,19 +19,19 @@ export const auth_ui = `
 
 export const content_ui = `
     <div class="grid-container">
-        <div class="grid-item">
-            <div class="icon">
-                
-            </div>
-            <div class="user-details">
-                <p class="username"></p>
-                <p class="login"></p>
-                <p class="mail"></p>
-                <p class="campus"></p>
-            </div>
+    <div class="grid-item">
+        <div class="icon">
+
         </div>
-        <div class="grid-item">
-            <div class="points">
+        <div class="user-details">
+            <p class="username"></p>
+            <p class="login"></p>
+            <p class="mail"></p>
+            <p class="campus"></p>
+        </div>
+    </div>
+    <div class="grid-item">
+        <div class="points">
             <span>
                 <p>Audit ratio :</p>
                 <p id="auditRatio"></p>
@@ -45,26 +45,31 @@ export const content_ui = `
                 <p>Level</p>
                 <p id="level"></p>
             </span>
-            </div>
-           
         </div>
-        <div class="grid-item">
-            <div class="points">
-                <h2>XP progression</h2> 
-                <div id="chart-container"></div>
-                <div class="tooltip" id="tooltip"></div>
+
+    </div>
+    <div class="grid-item">
+        <div class="points">
+            <h2>XP progression</h2>
+            <div id="chart-container"></div>
+            <div class="tooltip" id="tooltip"></div>
+        </div>
+    </div>
+    <div class="grid-item">
+        <div class="points">
+            <h3>Completed Projects</h3>
+            <div class="cproject">
+                <div>
+                </div>
             </div>
         </div>
-        <div class="grid-item">
-            <div class="points">
-              <h3>Completed Projects</h3>
-              <div class="cproject"><div>
-            </div>
-        </div>
-       <div class="grid-item">
-            <div class="points">
-              <h3>Ongoing Projects</h3>
-              <div class="oproject"><div>
+    </div>
+    <div class="grid-item">
+        <div class="points">
+            <h3>Ongoing Projects</h3>
+            <div class="oproject">
+                <div>
+                </div>
             </div>
         </div>
     </div>

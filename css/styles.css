@@ -96,7 +96,8 @@ body {
 }
 
 .grid-item:nth-child(3),
-.grid-item:nth-child(4) {
+.grid-item:nth-child(4),
+.grid-item:nth-child(5) {
     grid-column: 1 / -1;
 }
 .points{
