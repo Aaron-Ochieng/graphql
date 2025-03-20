@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0;
 }
 
@@ -99,7 +99,11 @@ body {
 .grid-item:nth-child(4) {
     grid-column: 1 / -1;
 }
-
+.points{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
 .icon {
     display: flex;
     flex-direction: column;
@@ -117,6 +121,14 @@ body {
 .username {
     font-size: 18px;
     font-weight: 600;
+}
+span{
+    display: flex;
+    flex-direction: row;
+}
+
+span p{
+    padding: 5px;
 }
 
 .user-details {
