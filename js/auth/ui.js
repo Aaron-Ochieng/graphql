@@ -41,7 +41,7 @@ export const content_ui = `
                 <p>Level</p>
                 <p id="userlevel"></p>
             </span>
-            <span>
+            <span id="level">
                 <p>Level</p>
                 <p id="level"></p>
             </span>
@@ -55,6 +55,17 @@ export const content_ui = `
                 <div class="tooltip" id="tooltip"></div>
             </div>
         </div>
-        <div class="grid-item">Item 3</div>
+        <div class="grid-item">
+            <div class="points">
+              <h3>Completed Projects</h3>
+              <div class="cproject"><div>
+            </div>
+        </div>
+       <div class="grid-item">
+            <div class="points">
+              <h3>Ongoing Projects</h3>
+              <div class="oproject"><div>
+            </div>
+        </div>
     </div>
 `
