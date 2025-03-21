@@ -2,6 +2,7 @@ const URL = 'https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql';
 const campus = "https://learn.zone01kisumu.ke"
 import { AUTH_TOKEN } from "./auth/auth.js";
 import { content_ui } from "./auth/ui.js";
+import { generateDonutChart } from "./graphs/donught.js";
 import { LineGraph } from "./graphs/progress.js";
 import { graphql_query } from "./query.js";
 
@@ -70,7 +71,7 @@ export default class Data {
             // Completed Projects
             const cprojects = document.querySelector('.cproject');
             element.completed_projects.forEach(project => {
-                const name = function(path){
+                const name = function (path) {
                     const arr = path.split('/')
                     return arr.pop()
                 };
@@ -79,15 +80,15 @@ export default class Data {
                     <p style="font-size:18px">${name(project.group.path)}</p>
                     <a style="margin-left:20px">${project.group.path}</a>
                 <div>
-                `                
+                `
             });
 
 
             // Display user ongoing projects
             const oprojects = document.querySelector('.oproject');
-            if (element.current_projects.length > 0 ){
+            if (element.current_projects.length > 0) {
                 element.current_projects.forEach(project => {
-                    const name = function(path){
+                    const name = function (path) {
                         const arr = path.split('/')
                         return arr.pop()
                     };
@@ -96,29 +97,51 @@ export default class Data {
                         <p style="font-size:18px">${name(project.group.path)}</p>
                         <a style="margin-left:20px">${project.group.path}</a>
                     <div>
-                    `                
+                    `
                 });
 
-            }else{
+            } else {
                 oprojects.textContent = "No ongoing projects"
             }
 
-            function formatKB(bytes){
+            function formatKB(bytes) {
                 const kilobytes = bytes / 1000;
                 const megabytes = kilobytes / 1000;
-              
+
                 if (megabytes >= 1) {
-                  const roundedMB = Math.round(megabytes * 10) / 10;
-                  return `${roundedMB}MB`;
+                    const roundedMB = Math.round(megabytes * 10) / 10;
+                    return `${roundedMB}MB`;
                 } else {
-                  const roundedKB = Math.round(kilobytes);
-                  return `${roundedKB}KB`;
+                    const roundedKB = Math.round(kilobytes);
+                    return `${roundedKB}KB`;
                 }
-              }
+            }
+            function formatKBDone(bytes) {
+                const kilobytes = bytes / 1000;
+                const megabytes = kilobytes / 1000;
+
+                if (megabytes >= 1) {
+                    const roundedMB = Math.round(megabytes * 100) / 100;
+                    return `${roundedMB}MB`;
+                } else {
+                    const roundedKB = Math.round(kilobytes);
+                    return `${roundedKB}KB`;
+                }
+            }
 
             // Total xp
-            document.getElementById('txp').textContent =formatKB(Number(element.totalXp.aggregate.sum.amount));
-            console.log()
+            document.getElementById('txp').textContent = formatKB(Number(element.totalXp.aggregate.sum.amount));
+            generateDonutChart(element.totalDown, element.totalUp)
+
+            document.getElementById('done').textContent = formatKBDone(element.totalUp)
+            document.getElementById('recieved').textContent = formatKBDone(element.totalDown)
+            console.log(element)
+        });
+
+
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.clear()
+            location.reload()
         });
     }
 }
