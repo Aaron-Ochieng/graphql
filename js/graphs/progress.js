@@ -106,5 +106,4 @@ export const LineGraph = (data) =>{
 
     // Add SVG to the DOM
     document.getElementById("chart-container").appendChild(svg);
-    console.log("Cumulative sum",cumulativeSum)
 }
