@@ -26,9 +26,18 @@ export const content_ui = `
         </div>
         <div class="user-details">
             <p class="username"></p>
-            <p class="login"></p>
-            <p class="mail"></p>
-            <p class="campus"></p>
+            <div style="display:flex">
+                <p style="font-weight:600;font-size=18px;">Username</p>
+                <p class="login" style="margin-left:10px"></p>
+            </div>
+            <div style="display:flex">
+                <p style="font-weight:600;font-size=18px;">Email</p>
+                <p class="mail" style="margin-left:10px"></p>
+            </div>
+            <div style="display:flex">
+                <p style="font-weight:600;font-size=18px;">Campus</p>
+                <p class="campus" style="margin-left:10px"></p>
+            </div>
         </div>
     </div>
     <div class="grid-item">
