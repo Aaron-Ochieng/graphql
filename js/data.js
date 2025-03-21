@@ -51,7 +51,7 @@ export default class Data {
         queryData['user'].forEach(element => {
 
             // User Details;
-            document.querySelector('.icon').textContent = 'A'
+            document.querySelector('.icon').textContent = element.firstName[0]
             document.querySelector('.username').textContent = element['firstName'] + ' ' + element['lastName']
             document.querySelector('.login').textContent = element['login']
             document.querySelector('.mail').textContent = element['email']
