@@ -140,7 +140,7 @@ span p {
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-left: 100px;
+    padding-left: 50px;
 }
 
 .cproject {
