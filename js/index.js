@@ -14,13 +14,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (res.status === 200) {
             localStorage.setItem(AUTH_TOKEN, data);
             authform.style.display = 'none';
+
+            setTimeout(() => {
+                location.reload();
+            }, 300);
+
+        } else {
+            const errortext = document.getElementById('error');
+            errortext.textContent = data.error;
+            errortext.style.display = "flex"
         }
     };
 
     if (auth.authToken === null || auth.authToken === 'undefined') {
         authform.innerHTML = auth_ui;
         document.getElementById('submit').addEventListener('click', clickToLogin);
-    }
 
-    new Data();
+    } else {
+        new Data()
+    }
 });
