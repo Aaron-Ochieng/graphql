@@ -3,6 +3,7 @@ export const auth_ui = `
         <div class="login-header">
             <h2>Login</h2>
         </div>
+        <p id="error" style="display:none; color:red;"></p>
         <div id="login-form">
             <div class="input-group">
                 <label for="username">Username /  Email</label>
@@ -45,12 +46,31 @@ export const content_ui = `
                 <p>Total XP</p>
                 <p id="txp"></p>
             </span>
+            <button id="logout"> Logout </button>
         </div>
 
     </div>
     <div class="grid-item">
-        <div class="points">
-            <h2>XP progression</h2>
+        <div class="">
+            <h2>Audits Ratio</h2>
+            <div id='donught'></div>
+            <div id="audits">
+                <div>
+                    <span  id="donestyle">
+                        <div id="doneAudits"></div>
+                        <p>Done </p> 
+                        <p id="done">1.2</p>
+                    <span>
+                </div>
+                <br>
+                <div>
+                <span  id="recievedStyle">
+                    <div id="recievedAudits"></div>
+                    <p>Recieved </p> 
+                    <p id="recieved">1.2</p>
+                <span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="grid-item">
