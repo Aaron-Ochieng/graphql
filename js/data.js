@@ -135,7 +135,6 @@ export default class Data {
 
             document.getElementById('done').textContent = formatKBDone(element.totalUp)
             document.getElementById('recieved').textContent = formatKBDone(element.totalDown)
-            console.log(element)
         });
 
 
